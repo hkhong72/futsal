@@ -1,0 +1,37 @@
+221022혁기한일
+ㅁ main.html team 경로변경
+ㅁ teamtables 팀생성버튼 링크설정, 팀찾기검색후팀테이블로돌아왔을때찾는팀보여주기
+ㅁ yukiteam.html삭제
+ㅁ teamcontroller에 search 변경
+ㅁ main.html team 구장검색추가 
+ㅁ fieldcontroller에 searchfield 추가
+ㅁ searchField.html생성
+
+1026혁기한일
+1. searchTeam.html 생성 (팀이름검색후가는페이지)
+2. MainController.java 수정 
+- teamtables.html로 가는 부분
+- 로그인했을때 세션생성하는부분(로그인시해당이메일로,해당팀찾아서세션생성)
+- 1) search구장검색부분 searchedField -> sField 수정
+  2) search.html에 지도에도 구장들 뜨게끔 값넘겨주기
+3. teamtables.html 수정
+- 최상단에 위치하는 내팀정보는 세션에서꺼내옴, 색깔로구분함
+- 팀이름검색하는 돋보기수정
+4. reserve.html 
+- 잔여포인트, 예약종류, 제출버튼바로위태그3개placeholder(a,input,input)
+- 예약내역부분 폼으로 감싸기 ( 제출시 파라미터넘기게 )
+5. reserve관련 controller,dto,service,impl,repository , 어플리케이션안건듬
+6. Teamcontroller.java 
+- search팀검색부분 searchedTeam -> sTeam 수정
+7. search.html 수정
+- 꺼내는값들 searchedTeam -> sTeam 수정
+8. 특정구장사진들 이미지올린거 이미지출력안됨 되는것만 v처리해놈
+9. search.html 에서 구장찾기 안되던거 form 구현되게수정
+
+
+221104혁기한일
+ㅁ main.html에서 구장찜버튼누르면 회원찜목록에담기고, 구장에찜한회원담기
+ㅁ 모든.html 푸터정리
+ㅁ MainController.java 회원가입시 찜목록 문자열null담기게
+ㅁ likeField.js 생성 
+ㅁ MemberController.java likelistAjax생성
