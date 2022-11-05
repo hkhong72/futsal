@@ -2,13 +2,13 @@ package com.ai.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -28,12 +28,23 @@ import com.ai.domain.FieldDTO;
 import com.ai.domain.GoogleAPI;
 import com.ai.domain.KaKaoAPI;
 import com.ai.domain.MemberDTO;
+import com.ai.domain.Message;
 import com.ai.domain.NaverAPI;
+import com.ai.domain.ReservationDTO;
+import com.ai.domain.ReservationVO;
+import com.ai.domain.ReserveDTO;
+import com.ai.domain.ReserveListDTO;
 import com.ai.domain.TeamDTO;
 import com.ai.service.FieldService;
 import com.ai.service.MemberService;
+import com.ai.service.ReservationService;
+import com.ai.service.ReserveListService;
+import com.ai.service.ReserveService;
 import com.ai.service.TeamService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 public class MainController {
 	KaKaoAPI kakaoApi = new KaKaoAPI();
@@ -41,12 +52,33 @@ public class MainController {
 	GoogleAPI googleApi = new GoogleAPI();
 	@Autowired
 	FieldService fService;
-
 	@Autowired
 	MemberService mService;
-
 	@Autowired
 	TeamService tService;
+	@Autowired
+	ReserveService rService;
+	@Autowired
+	ReserveListService rlService;
+	@Autowired
+	ReservationService rvService;
+
+	// TEST
+	@RequestMapping(value = "/createTeam")
+	public void goCreateTeam() {
+
+	}
+
+	@RequestMapping(value = "/reservation")
+	public ModelAndView getReservation(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		String nickName = mService.findByid((String) session.getAttribute("userId")).getNickName();
+		System.out.println(nickName);
+		ArrayList<ReservationVO> reservationList = rvService.findByid(nickName).getInfo();
+		mav.addObject("reservationList", reservationList);
+		mav.setViewName("/reservation");
+		return mav;
+	}
 
 	@RequestMapping(value = "/teamtables", method = RequestMethod.GET)
 	public ModelAndView goTeam(HttpSession session) {
@@ -55,41 +87,31 @@ public class MainController {
 		System.out.println("세션 유저 아이디 : " + session.getAttribute("userId"));
 		System.out.println("=============== Sesssion ==============");
 		System.out.println("=============== RESERVE MAV ===================");
-		System.out.println("member : " + mService.findBy_id((String)session.getAttribute("userId")));
-		System.out.println("team : " + tService.findBytName(mService.findBy_id((String)session.getAttribute("userId")).getTName()));
+		System.out.println("member : " + mService.findByid((String) session.getAttribute("userId")));
+		System.out.println("team : " + mService.findByid((String) session.getAttribute("userId")).getTName());
 		System.out.println("=============== RESERVE MAV ===================");
 		// END TEST
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("team", tService.findBytName(mService.findBy_id((String)session.getAttribute("userId")).getTName()));
-		String _id = (String) (session.getAttribute("userId"));
-		MemberDTO member = new MemberDTO();
-		member = mService.findBy_id(_id);
-		mav.addObject("member", member);
-		TeamDTO myTeam = tService.findBytName(member.getTName());
-		mav.addObject("myTeam", myTeam);
-		ArrayList<TeamDTO> tList = tService.findAll();
-		mav.addObject("tList", tList);
-		mav.setViewName("/teamtables");
-		return mav;
-	}
 
-	// TEST
-	@RequestMapping(value = "/login")
-	public ModelAndView getLogin() throws Exception {
-		ModelAndView mav = new ModelAndView();
-		String clientId = "s3SKlARx4M5gtCyBNSwG";// 애플리케이션 클라이언트 아이디값";
-		// callbackURL 나중에 변경할것
-		String redirectURI = URLEncoder.encode("http://localhost:8080/loginAccess", "UTF-8");
-		SecureRandom random = new SecureRandom();
-		// state 는 Naver 사에서 'CSRF를 방지하기 위한 인증값입니다. 임의의 값을 넣어 진행해주시면 되는데요.' 라고 답변 (난수
-		// 입력)
-		String state = new BigInteger(130, random).toString();
-		String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
-		apiURL += "&client_id=" + clientId;
-		apiURL += "&redirect_uri=" + redirectURI;
-		apiURL += "&state=" + state;
-		mav.addObject("apiURL", apiURL);
-		mav.setViewName("/login");
+		if (mService.findByid((String) session.getAttribute("userId")).equals("null")) {
+			String _id = (String) (session.getAttribute("userId"));
+			MemberDTO member = new MemberDTO();
+			member = mService.findByid(_id);
+			mav.addObject("member", member);
+			ArrayList<TeamDTO> tList = tService.findAll();
+			mav.addObject("tList", tList);
+			mav.setViewName("/teamtables");
+		} else {
+			mav.addObject("team",
+			tService.findBytName(mService.findByid((String) session.getAttribute("userId")).getTName()));
+			String _id = (String) (session.getAttribute("userId"));
+			MemberDTO member = new MemberDTO();
+			member = mService.findByid(_id);
+			mav.addObject("member", member);
+			ArrayList<TeamDTO> tList = tService.findAll();
+			mav.addObject("tList", tList);
+			mav.setViewName("/teamtables");
+		}
 		return mav;
 	}
 
@@ -108,6 +130,7 @@ public class MainController {
 		apiURL += "&client_id=" + clientId;
 		apiURL += "&redirect_uri=" + redirectURI;
 		apiURL += "&state=" + state;
+		apiURL += "&prompt=login";
 		mav.addObject("apiURL", apiURL);
 		mav.setViewName("/register");
 		return mav;
@@ -135,9 +158,13 @@ public class MainController {
 		HashMap<String, Object> userInfo = null;
 		Cookie[] cookieArr = request.getCookies();
 		for (Cookie cookie : cookieArr) {
+			System.out.println("cookie : " + cookie);
 			if (cookie.getName().equals("platform")) {
 				platform = cookie.getValue();
+				System.out.println("platform : " + platform);
 			}
+
+			// REGISTER
 			if (cookie.getName().equals("name")) {
 				name = cookie.getValue();
 				System.out.println("Cookie name : " + name);
@@ -154,9 +181,10 @@ public class MainController {
 				phoneNo = cookie.getValue();
 				System.out.println("Cookie phoneNo : " + phoneNo);
 			}
+			// REGISTER
 		}
 
-		// 카카오 일때
+		// CHECK PLATFORM
 		if (platform.equals("kakao")) {
 			access_token = kakaoApi.getAccessToken(code);
 			userInfo = kakaoApi.getUserInfo(access_token);
@@ -180,8 +208,10 @@ public class MainController {
 			session.setAttribute("access_token", access_token);
 		}
 		// 메인페이지 위치로
+		ArrayList<String> nList = new ArrayList<>();
+		nList.add("null");
 		if (name != null) {
-			member.set_id((String) userInfo.get("email"));
+			member.setId((String) userInfo.get("email"));
 			member.setPlatform(platform);
 			member.setRegDate(now);
 			member.setName(name);
@@ -190,13 +220,24 @@ public class MainController {
 			member.setPhoneNo(phoneNo);
 			member.setTName(tName);
 			member.setHadPoint(hadPoint);
+			member.setLikeFieldList(nList);
 			mService.insert(member);
 		}
 		System.out.println("login platform : " + platform);
 		System.out.println("access_token : " + access_token);
 		System.out.println("login info : " + userInfo.toString());
+		// CHECK MEMBER
 		session.setAttribute("userId", userInfo.get("email"));
-		mav.setViewName("redirect:/main");
+		if (mService.findByid((String) userInfo.get("email")) != null) {
+			System.out.println("회원 정보 존재");
+			mav.setViewName("redirect:/main");
+		}
+
+		else {
+			System.out.println("회원정보에 없는 유저가 로그인");
+			mav.addObject("data", new Message("등록된 회원 정보가 없습니다. 회원가입 페이지로 이동합니다.", "/logout2"));
+			mav.setViewName("/message");
+		}
 		return mav;
 	}
 
@@ -209,17 +250,36 @@ public class MainController {
 	public ModelAndView getMain(HttpSession session, Model model) throws UnsupportedEncodingException {
 		ModelAndView mav = new ModelAndView();
 		ArrayList<FieldDTO> fList = fService.findAll();
+		ArrayList<FieldDTO> fList1 = new ArrayList<FieldDTO>();
+		for (int i = 0; i < 10; i++) {
+			fList1.add(fList.get(i));
+		}
+		mav.addObject("fList1", fList1);
 		ArrayList<String> fNList = new ArrayList<String>();
 		ArrayList<String> latList = new ArrayList<String>();
 		ArrayList<String> lonList = new ArrayList<String>();
 		for (int i = 0; i < fList.size(); i++) {
-			fNList.add(fList.get(i).getfName());
+			fNList.add(fList.get(i).getFName());
 			latList.add(fList.get(i).getLatitude());
 			lonList.add(fList.get(i).getLongitude());
 		}
+		String clientId = "s3SKlARx4M5gtCyBNSwG";// 애플리케이션 클라이언트 아이디값";
+		// callbackURL 나중에 변경할것
+		String redirectURI = URLEncoder.encode("http://localhost:8080/loginAccess", "UTF-8");
+		SecureRandom random = new SecureRandom();
+		// state 는 Naver 사에서 'CSRF를 방지하기 위한 인증값입니다. 임의의 값을 넣어 진행해주시면 되는데요.' 라고 답변 (난수
+		// 입력)
+		String state = new BigInteger(130, random).toString();
+		String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+		apiURL += "&client_id=" + clientId;
+		apiURL += "&redirect_uri=" + redirectURI;
+		apiURL += "&state=" + state;
+		apiURL += "&prompt=login";
+		mav.addObject("apiURL", apiURL);
 		mav.addObject("fNList", fNList);
 		mav.addObject("latList", latList);
 		mav.addObject("lonList", lonList);
+		mav.addObject("fList", fList);
 		mav.setViewName("/main");
 		return mav;
 	}
@@ -259,50 +319,77 @@ public class MainController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/search", method = RequestMethod.POST)
-	   public ModelAndView searchFields(@RequestParam("fName") String fName) {
-	      ModelAndView mav = new ModelAndView();
-	      ArrayList<FieldDTO> fields = fService.findByFNameRegex(fName);
-	      mav.addObject("fields", fields);
-	      mav.setViewName("/search");
-	      ArrayList<FieldDTO> fList = fService.findAll();
-	      ArrayList<String> fNList = new ArrayList<String>();
-	      ArrayList<String> latList = new ArrayList<String>();
-	      ArrayList<String> lonList = new ArrayList<String>();
-	      for (int i = 0; i < fList.size(); i++) {
-	         fNList.add(fList.get(i).getfName());
-	         latList.add(fList.get(i).getLatitude());
-	         lonList.add(fList.get(i).getLongitude());
-	      }
-	      mav.addObject("fNList", fNList);
-	      mav.addObject("latList", latList);
-	      mav.addObject("lonList", lonList);
-	      return mav;
-	   }
-	
-	@RequestMapping(value = "/reserve/{selectField}")
-	public ModelAndView goReserve(@PathVariable("selectField") String selectField, HttpServletRequest request, HttpSession session) {
+	@RequestMapping(value = "/logout2")
+	public ModelAndView logout2(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("member", mService.findBy_id((String)session.getAttribute("userId"))); 
-		mav.addObject("team", tService.findBytName(mService.findBy_id((String)session.getAttribute("userId")).getTName()));
+		String platform = null;
+		Cookie[] cookieArr = request.getCookies();
+		for (Cookie cookie : cookieArr) {
+			if (cookie.getName().equals("platform")) {
+				platform = cookie.getValue();
+			}
+		}
+		try {
+			if (platform.equals("kakao")) {
+				kakaoApi.logout((String) session.getAttribute("access_token"));
+				session.invalidate();
+			}
+			if (platform.equals("naver")) {
+				naverApi.logout((String) session.getAttribute("access_token"));
+				session.invalidate();
+			}
+			if (platform.equals("google")) {
+				googleApi.logout((String) session.getAttribute("access_token"));
+				session.invalidate();
+			}
+		} catch (Exception e) {
+			session.invalidate();
+		}
+
+		for (Cookie cookie : cookieArr) {
+			cookie.setMaxAge(0);
+			response.addCookie(cookie);
+		}
+		mav.setViewName("redirect:/register");
+		return mav;
+	}
+
+	@RequestMapping(value = "/reserve/{selectField}/{time}/{type}")
+	public ModelAndView goReserve(@PathVariable("selectField") String selectField, @PathVariable("time") String time,
+			@PathVariable("type") String type, HttpServletRequest request, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("member", mService.findByid((String) session.getAttribute("userId")));
+		mav.addObject("team",
+				tService.findBytName(mService.findByid((String) session.getAttribute("userId")).getTName()));
 		Cookie[] cookies = request.getCookies();
 		FieldDTO field = fService.findByfName(selectField);
+		String date = null;
 		for (Cookie cookie : cookies) {
 			System.out.println("쿠키 이름 : " + cookie.getName());
 			if (cookie.getName().equals("date")) {
-				mav.addObject("date", cookie.getValue());
+				date = cookie.getValue();
+				mav.addObject("date", date);
 			}
 		}
 		mav.addObject("selectField", field);
+		mav.addObject("time", time);
+		if (type.equalsIgnoreCase("yellow")) {
+			mav.addObject("reserveInfo", rService.findReserve(selectField, date, time));
+		} else {
+			mav.addObject("reserveInfo", null);
+		}
 		// TEST CODE
 		System.out.println("=================== Sesssion ==================");
 		System.out.println("세션 유저 아이디 : " + session.getAttribute("userId"));
 		System.out.println("=================== Sesssion ==================");
 		System.out.println();
 		System.out.println("=============== Reserve Model Objects ===================");
-		System.out.println("member : " + mService.findBy_id((String)session.getAttribute("userId")));
-		System.out.println("team : " + tService.findBytName(mService.findBy_id((String)session.getAttribute("userId")).getTName()));
+		System.out.println("member : " + mService.findByid((String) session.getAttribute("userId")));
+		System.out.println("team : "
+				+ tService.findBytName(mService.findByid((String) session.getAttribute("userId")).getTName()));
 		System.out.println("현재 선택된 필드 : " + field);
+		System.out.println("현재 선택된 시간 : " + time);
+		System.out.println("예약자의 타입 Green=A, Yellow=B : " + type);
 		System.out.println("=============== Reserve Model Objects ===================");
 		// END TEST
 		mav.setViewName("/reserve");
