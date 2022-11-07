@@ -35,3 +35,25 @@
 ㅁ MainController.java 회원가입시 찜목록 문자열null담기게
 ㅁ likeField.js 생성 
 ㅁ MemberController.java likelistAjax생성
+ㅁ MainController.java    /search 구장찾기시 구장명,주소 포함된 결과값가져와서 중    - 복제거 후에 보여주기
+ㅁ 필드레퍼지토리
+ㅁ 필드 서비스
+ㅁ 필드 서비스임플
+ㅁ 필드 디티오
+
+221105혁기한일
+ㅁ main.html 구장찾기 변경
+ㅁ maincontroller search -> fieldController로 이동
+ㅁ searchField.js 생성
+ㅁ ajax로 같은 페이지에서 처리
+
+221107혁기한일 
+ㅁ searchTeam.html -> teamtables.html로 합체잼
+ㅁ searchTeam.js 생성
+ㅁ teamtables.html 검색에 id추가
+ㅁ Teamcontroller.java search부분 수정
+ㅁ TeamRepository 
+ㅁ TeamService
+ㅁ TeamServiceImpl
+ㅁ searhTeam.html 삭제
+ㅁ SearchMainDTO 에 추가
