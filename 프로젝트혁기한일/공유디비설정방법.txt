@@ -1,0 +1,25 @@
+Project0 
+클라스터이름 : futsalCluster
+UserName : yuki
+Password : 1234
+
+===================================
+MongoAtlas 접속 ( 로그인 )
+futsal 프로젝트 생성
+cluster 생성 ( 무료버전, 프로젝트 하나당 하나뿐 ) - futsalCluster
+Network Access - 접근가능 IP설정 0.0.0.0/0  -> 모든IP에서 접근가능 함을 의미
+Database Access - UserName : yuki , password : 1234 로 설정함
+
+컴파스에서 save & connect 하면 계속 실행됨
+혹시, 안되면 Atlas 열고 Database 누르고 connect 한 다음, compass로 열기
+주소 복사 후 , yuki 1234 해당 부분만 바꿔서 compass에서 new connection 하기
+
+스프링부트랑 연결하는 방법
+Atlas -> Database -> connect -> Connect your application -> 주소복사 ( yuki 1234 )
+부트에 application.properties -> 
+spring.data.mongodb.uri=mongodb+srv://yuki:1234@futsalcluster.1zsmfkf.mongodb.net/futsal?retryWrites=true&w=majority 추가
+
+기존
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017
+spring.data.mongodb.database=futsal 삭제
