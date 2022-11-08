@@ -1,0 +1,23 @@
+TeamInfo,_class,_id,foundingDate,logoName,logoPath,tAge,tArea,tManner,tName,tTotal,uniform
+hi we are the bit,com.ai.domain.TeamDTO,635114b0ef072b1f468bd049,22-10-01,,,20대,강남,0,비트팀,0,노랑색2
+ㅇㅇ,com.ai.domain.TeamDTO,63511fc4ef072b1f468bd04b,ㅇㅇ,,,10대,ㅇㅇ,0,ㅇㅇ,0,ㅇㅇ
+ㅇㅇ,com.ai.domain.TeamDTO,63512602ef072b1f468bd050,ㅇㅇ,,,10대,ㅇㅇ,0,ㅇㅇ,0,ㅇㅇ
+ㅇㅇㅇ,com.ai.domain.TeamDTO,63512b4cef072b1f468bd057,ㅇㅇ,,,10대,ㅇㅇㅇ,0,ㅇㅇㅇ,0,ㅇㅇㅇ
+ㄹㄹㄹ,com.ai.domain.TeamDTO,63513d2bd6af0b37e1c19dcc,ㄹㄹㄹ,,,20대,ㄹㄹㄹ,0,ㄹㄹㄹ,31,ㄹㄹㄹ
+코딩,com.ai.domain.TeamDTO,635254d391f1da7cc0c06f6b,22-10-21,,,10대,남42,0,윤후팀,0,파마색
+씨발럼아,com.ai.domain.TeamDTO,쩜핑,씨발창단일,,,10대,씨발지역,0,씨발,12,씨발색
+come to gym,com.ai.domain.TeamDTO,정풍근,2022-10-28,,,30대,헬스장,0,풍선근육팀,999,살색
+"come to modal' hell",com.ai.domain.TeamDTO,모달아저씨,2022-10-28,,,40대 이상,모달창그어딘가,0,모달모여라,374,모달색
+쉽게말하자면 TALKING TO EASY PLZ,com.ai.domain.TeamDTO,쉽게말하자면,2022-10-29,,,10대,비트컴퓨터남42,0,자바노가다팀,876,하얀색
+welcome to FC Seoul,com.ai.domain.TeamDTO,기성용,2022-10-29,,,30대후반,서울 상암,0,FC서울,184,분홍색
+welcome to FC Braca,com.ai.domain.TeamDTO,메시,2022-10-30,,,30대중반,바르셀로나,0,FC바르셀로나,99,파란색
+welcome to FC 토트넘,com.ai.domain.TeamDTO,손흥민,2022-10-31,,,20대후반,영국 런던,0,FC토트넘,17,하얀색
+welcome to IKON,com.ai.domain.TeamDTO,이안,2022-11-01,,,40대,대구,0,아이콘,39,노란색
+으이 !,com.ai.domain.TeamDTO,경정수,2022-09-29,,,20대후반,경기도 고양,0,고양불스풋살클럽,27,노란색
+왈왈 !,com.ai.domain.TeamDTO,이하늘,2020-10-19,,,20대후반,서울 강서구,0,파트라슈,18,분홍색
+welcome to 새싹,com.ai.domain.TeamDTO,김종현,2022-03-17,,,20대후반,서울,0,FC새싹,10,초록색
+홍혁기네이버팀입니다 잘부탁드려요 실력은 하하(선출X)입니다. ,com.ai.domain.TeamDTO,홍혁기네이버닉네임,2022-11,,,20대 후반,서울시 강남구,0,혁기네이버팀,0,노랑색
+무릎아끼자,com.ai.domain.TeamDTO,일해라,2022-11,,,40대 이상,제주 서귀포시,0,노가다모여라,0,개구리
+"저희는 구글본사에서 홍혁기부장님을 필두로 모인 팀입니다.
+실력은 최상입니다. 홍혁기 부장님이 풋살프로선수출신입니다.",com.ai.domain.TeamDTO,홍혁기구글닉네임,2022-06,,,20대 초반,서울시 강서구,0,홍혁기구글팀,0,파란색
+혁기형 몸짱이에요 ?,com.ai.domain.TeamDTO,자바노가다꾼,2022-01,saessak.png,2022/11/08/,20대 후반,인천시 연수구,0,혁기는몸짱팀,0,빨간색

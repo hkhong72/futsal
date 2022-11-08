@@ -1,0 +1,44 @@
+221028혁기한일
+1. teamtables.html에서  팀이름누르면 해당팀페이지로 가게
+- teamtables.html 수정
+- TeamController.java    moveToTeam함수생성
+- myteamtest.html 생성  
+- searchTeam.html 수정
+2. 공유 DB데이터값 생성 후 EXPORT
+3. MainController 회원정보 insert후에 세션생성 (위치옮김) 
+
+221029혁기한일
+
+팀 검색 문자열 포함된 리스트 다 가져오게.
+
+TeamService - findByTNameRegex함수추가
+
+TeamServiceImpl - findByTNameRegex함수추가
+
+TeamRepository - findByTNameRegex함수추가
+
+TeamController - search수정 (문자열포함된걸로찾게)
+
+teamtables.html - 문자열포함된걸로갖고오게 수정 ( 리스트출력 반복문돌게 )
+
+구장 검색 문자열 포함된 리스트 다 가져오게.
+
+FieldService - findByFNameRegex함수추가
+
+FieldServiceImpl - findByFNameRegex함수추가
+
+FieldRepository - findByFNameRegex함수추가
+
+MainController - search수정 (구장검색 문자열포함된걸로찾게)
+
+search.html - 문자열포함된걸로갖고오게 수정 ( 리스트출력 반복문돌게 )
+
+메인화면에서도 구장들 디비에서 모든구장리스트가져와서 연결되게
+
+mainController - 메인으로갈때 mav.addObject("fList", fList); 한줄추가
+
+main.html - 모든구장리스트 가져오게 
+-> 스크롤맨아래로내리면 자동으로 가져오게추가해야할듯 
+-> 아니면 인기구장(하트순), 리뷰순 등 으로 기준잡고 일정갯수구장만 가져오던가
+
+team.json 디비 공유용 데이터 (팀DB) json내용추가

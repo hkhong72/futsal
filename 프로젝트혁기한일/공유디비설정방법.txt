@@ -12,6 +12,7 @@ Database Access - UserName : yuki , password : 1234 로 설정함
 
 컴파스에서 save & connect 하면 계속 실행됨
 혹시, 안되면 Atlas 열고 Database 누르고 connect 한 다음, compass로 열기
+mongodb+srv://yuki:<password>@futsalcluster.1zsmfkf.mongodb.net/test
 주소 복사 후 , yuki 1234 해당 부분만 바꿔서 compass에서 new connection 하기
 
 스프링부트랑 연결하는 방법
