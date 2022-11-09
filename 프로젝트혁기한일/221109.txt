@@ -1,0 +1,32 @@
+노랑버튼클릭시 뜨는거처리
+field.html
+style.css
+infowindow.css
+datepicker2.js
+FieldController.java
+===============================================
+팀에 문자열 널값 지우기 
+ㅁ MainController.java - 회원가입시 tName = "null" 없앰
+		    - teamtables로 갈때 team없으면 null로 담기
+ㅁ teamtables.html - 팀생성 버튼 보이는 조건 수정
+ㅁ teamInfo.html - 성근이형이 준 부분 추가
+ㅁ app-style.css - 성근이형 부분 추가
+ㅁ teamtables.html - 팀신청하기 및 상세보기 버튼생성 
+ㅁ button.css - 성근이형 부분 추가
+ㅁ table.css - 성근이형 부분 수정 
+ㅁ field.html - 팀없을 시 시간바 클릭 불가
+	    -  히든으로 넘기는 부분 조건 추가
+ㅇ 17시47분 구글로그인불가
+ㅁ googleAPI.java - 로그인불가 윤후 수정
+ㅁ TeamController.java - 팀생성시 기본로고 장착 ( 로컬피시에 있어야함 내껏만댐ㅋ )
+===============================================
+멤버에 문자열 널값 지우기 
+ㅁ MainController.java - 회원가입시 찜목록에 널값삽입 삭제
+ㅁ MemberControoler.java - likeFieldAjax 부분 수정
+===============================================
+팀 없을때 팀생성버튼, 있을때 팀관리 보여주기
+ㅁ teamtable.html 팀 생성버튼 부분
+ㅁ MainController.java - teamtables 가는 곳
+===============================================
+필드에서도 구장찜가능하게하기
+ㅁ field.html - 리뷰 보기 옆에 부분에 하트버튼생성 ( ps.성근이형..디자인좀부탁..)
