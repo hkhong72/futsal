@@ -1,0 +1,16 @@
+221110혁기한일
+FieldReviewDTO.java 생성
+field.html 성근이형부분추가 및 모달생성
+fieldreview.js 생성
+
+ㅁ FieldReviewService 생성
+ㅁ FieldReviewServiceImpl 생성
+ㅁ FieldReviewRepository 생성
+ㅁ FieldReviewVO 생성
+ㅁ FieldController.java - field {id} 부분에 해당구장리뷰도 들고가게
+ㅁ Field.html 리뷰보기 누르면 모달뜨게, 모달안에 리뷰내용담게
+=======밥먹고와서 리뷰인서트 ==============
+ㅁ field.html - fieldreviewmodal.css적용추가
+ㅁ fieldreviewmodal.css 생성
+ㅁ main.html 로그인안하면 찜,리뷰버튼안보이게
+ㅁ 리뷰보기누르면 모달뜸 
