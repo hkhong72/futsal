@@ -1,0 +1,26 @@
+======== fieldController.java===========
+// 해당 구장에 이미 좋아요를 눌렀으면 true, 반대면 false
+      boolean alreadylikefield = false;
+      try{
+         if(member.getLikeFieldList().contains(field.getFName()) == true){
+            alreadylikefield = true;
+         }
+      }catch(Exception e){
+         log.info("해당 회원은 찜한 구장이 없습니다.");
+         alreadylikefield = false;
+      }
+
+      mav.addObject("alreadylikefield", alreadylikefield);
+
+======== fieldController.java===========
+
+<button th:if="${session.userId ne null && alreadylikefield eq true}" type="button" class="heartbrk" name="likeFieldArray"
+                        th:value="${field.fName}">
+                    <img src="/img/icons/heart1.png">
+                </button>
+                <button th:if="${session.userId ne null && alreadylikefield eq false}" type="button" class="heartbrk" name="likeFieldArray"
+                th:value="${field.fName}">
+                    <img src="/img/icons/heart2.png">
+                </button>
+
+======== fieldController.java=========== 

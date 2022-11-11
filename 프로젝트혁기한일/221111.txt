@@ -1,0 +1,7 @@
+221110혁기한일
+ㅁ field.html에 좋아요 버튼이 이미 찜한구장이면 노랑하트
+    - 찜하지 않은 구장이면 빈하트
+
+ㅁ fieldreview.js 구장리뷰하고난후 자동으로 올라가게, 올라가고textarea초기화
+ㅁ fieldController.java - fetch하고 결과값에 원하는대로 VO리스트담게
+ㅁ deletereview.js 생성
