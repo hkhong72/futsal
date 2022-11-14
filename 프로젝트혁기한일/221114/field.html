@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Info</title>
+    <meta charset="UTF-8"/>
+    <link href="https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css" rel="stylesheet"/>
+    <meta name="description" content="Game Warrior Template"/>
+    <meta name="keywords" content="warrior, game, creative, html"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Favicon -->
+    <link th:href="@{/img/mainlogo.png}" rel="shortcut icon"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"/>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{/css/animate.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min1.css}"/>
+    <link rel="stylesheet" th:href="@{/css/infowindow.css}"/>
+    <link rel="stylesheet" th:href="@{/css/timetable.css}">
+    <link rel="stylesheet" th:href="@{/css/fieldreviewmodal.css}">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script type="text/javascript" th:src="@{/js/includeHTML.js}"></script>
+    <link id="contextPathHolder" th:data-contextPath="${#httpServletRequest.getContextPath()}"/>
+</head>
+<body>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+<!-- Header section -->
+<header class="header-section">
+    <div class="container">
+        <!-- logo -->
+        <a th:href="@{/main}">
+            <img th:src="@{/img/logo.png}" style="height: 50px;">
+        </a>
+        <div class="user-panel">
+            <span th:if="${session.userId eq null}">
+                <span id="signIn">로그인</span>
+               / <a th:href="@{/register}">회원가입</a>
+            </span>
+            <span th:if="${session.userId ne null}">
+                <a th:href="@{http://localhost:8080/logout}">로그아웃</a>
+            </span>
+            <div class="modal" id="loginModal">
+                <div class="modal_content" id="loginModalContent">
+                    <div>
+                        <p style="font-size: 16px; ">로그인 방식을 선택해주세요.</p>
+                    </div>
+                    <div id='loginSet'>
+                        <img id="kakaoLogin" height="55px" th:src="@{/img/kakaoLogin.png}"/>
+                        <th:block>
+                            <input type="text" style="display: none" th:value="${apiURL}" id="naverURL">
+                        </th:block>
+                        <img id="naverLogin" height="55px" style="margin-top: 5px;" th:src="@{/img/naverLogin.png}"/>
+                        <img id="googleLogin" height="55px" style="margin-top: 5px;" th:src="@{/img/googleLogin.png}"/>
+                    </div>
+                    <button type="button" class="btn btn-warning" id="backBtn">돌아가기</button>
+                </div>
+            </div>
+        </div>
+        <!-- responsive -->
+        <div class="nav-switch">
+            <i class="fa fa-bars"></i>
+        </div>
+        <div style="display: inline-block;">
+            <input type="text" name="fName" id="searchField" placeholder="&nbsp; 구장명 혹은 주소">
+            <input type="button" value="구장찾기" id="searchFieldButton">
+        </div>
+        <!-- site menu -->
+        <nav class="main-menu">
+            <ul>
+                <th:block th:if="${session.userId ne null}">
+                    <li><a th:href="@{/main}">Home</a></li>
+                    <li><a th:href="@{/teamtables}">Team</a></li>
+                    <li><a th:href="@{/reservation}">Reservation</a></li>
+                    <li><a th:href="@{/contact.html}">Quick Menu</a></li>
+                </th:block>
+                <th:block th:if="${session.userId eq null}">
+                    <li><a th:href="@{/main}">Home</a></li>
+                </th:block>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- Header section end -->
+<!-- Latest news section -->
+<div class="latest-news-section">
+    <div class="ln-title">FUTSAL News</div>
+    <div class="news-ticker">
+        <div class="news-ticker-contant">
+            <div class="nt-item">
+                <span class="new">new</span>Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit.
+            </div>
+            <div class="nt-item">
+                <span class="strategy">strategy</span>Isum dolor sit amet,
+                consectetur adipiscing elit.
+            </div>
+            <div class="nt-item">
+                <span class="racing">racing</span>Isum dolor sit amet, consectetur
+                adipiscing elit.
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Open Content -->
+
+<section class="hero-section row">
+    <div class="col-md-5 mt-5">
+        <div class="hero-slider owl-carousel">
+            <div class="hs-item set-bg" th:data-setbg="${field.fPic1}">
+                <div class="hs-text">
+                    <div class="container"></div>
+                </div>
+            </div>
+            <div class="hs-item set-bg" th:data-setbg="${field.fPic2}">
+                <div class="hs-text">
+                    <div class="container"></div>
+                </div>
+            </div>
+            <div class="hs-item set-bg" th:data-setbg="${field.fPic3}">
+                <div class="hs-text">
+                    <div class="container"></div>
+                </div>
+            </div>
+        </div>
+        <div class="mnd">
+            <input id="fNList" style="display: none" th:value="${fNList}">
+            <input id="latList" style="display: none" th:value="${latList}">
+            <input id="lonList" style="display: none" th:value="${lonList}">
+            <div id="map_n" style="width: 300px; height: 300px; margin-left: 80px; margin-top: 10px;"></div>
+            <input id="fName" style="display: none" th:value="${field.fName}">
+            <div id="futsalDate" style="margin-left: 412px; margin-top: -300px"></div>
+        </div>
+    </div>
+
+    <input type="hidden" id="userTeamInfo" th:value="${userTeamInfo}">
+    <input type="hidden" id="myteamlogoPath" th:value="${myteam eq null} ? null :${myteam.logoPath}">
+    <input type="hidden" id="myteamlogoName" th:value="${myteam eq null} ? null :${myteam.logoName}">
+    <input type="hidden" id="myteam" th:value="${myteam}">
+    <!-- col end -->
+    <div class="col-md-7 mt-5">
+        <div class="card" style="margin-right: 20px;">
+            <div class="card-body">
+                <input id="fieldId" th:value="${field.id}" style="display:none">
+                <input id="latitude" style="display: none" th:value="${field.latitude}">
+                <input id="longitude" style="display: none" th:value="${field.longitude}">
+                <div th:if="${session.userId ne null}">
+                    <h1 th:text="${field.fName}" class="h2" style="display: inline-block"></h1>
+                    <img type="button" id="fieldreview" src="https://i.ibb.co/YtXdvCF/image.png" style="width: 3%;"/> 리뷰
+                    보기
+
+                    <div class="reviewmodal">
+                        <div class="review_modal_content">
+                            <table id="reviewInfo" style="border: 1px solid #444444;">
+                                <tr>
+                                    <th>구장명</th>
+                                    <th>작성자</th>
+                                    <th>후기</th>
+                                    <th>작성일자</th>
+                                </tr>
+                                <tbody class="column-h4" id="tbodyid">
+                                <tr th:each="reviewList : ${reviewList}">
+                                    <td th:text="${field.fName}"></td>
+                                    <td th:text="${reviewList.nickName}"></td>
+                                    <td th:text="${reviewList.review}"></td>
+                                    <td th:text="${reviewList.regDate}"></td>
+                                    <td th:if="${member.nickName eq reviewList.nickName}">
+                                        <button type="button" class="modifyReview" id="modifyReview" name="modifyReview" th:value="${reviewList.review}">수정</button>
+                                    </td>
+                                    <td th:if="${member.nickName eq reviewList.nickName}">
+                                        <button type="button" class="deleteReview" id="deleteReview" name="deleteReview" th:value="${reviewList.regDate}">삭제</button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <form id="fieldmodifysubmitfrm">
+                            구장명 : <input type="text" name="writerFieldName" id="writerFieldName"
+                            th:value="${field.fName}" readonly><br>
+                            작성자 : <input type="text" name="writerNickName" id="writerNickName"
+                                         th:value="${member.nickName}" readonly><br>
+                            후기 : <textarea name="writerReview" id="writerReview"></textarea><br>
+                            <button type="button" name="reviewbutton" id="reviewbutton">리뷰작성</button>
+                            <button type="button" class="btn btn-warning" id="backtofield">돌아가기</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" th:value="${member.nickName}" id="memberNickName">
+                <p th:text="${field.fAddress}" class="h3 py-2"></p>
+                <p th:text="| TEL : ${field.fPhoneNo}|" class="h5 py-2"></p>
+
+                <button th:if="${session.userId ne null && alreadylikefield eq true}" type="button" class="heartbrk"
+                        name="likeFieldArray"
+                        th:value="${field.fName}">
+                    <img src="/img/icons/heart1.png">
+                </button>
+                <button th:if="${session.userId ne null && alreadylikefield eq false}" type="button" class="heartbrk"
+                        name="likeFieldArray"
+                        th:value="${field.fName}">
+                    <img src="/img/icons/heart2.png">
+                </button>
+                <h6>구장안내</h6>
+                <p th:text="${field.capacity}"></p>
+                <p th:text="${field.fSize}"></p>
+                <p th:text="${field.fInfo}"></p>
+                <p th:text="|구장 이용료 : ${field.fPrice1} 원|"></p>
+                <h6>편의시설</h6>
+                <div class="column">
+                    <ul class="list-unstyled pb-3">
+                        <img th:src="${field.coldHot}"/>
+                        <img th:src="${field.shower}"/>
+                        <img th:src="${field.parking}"/>
+                        <br>
+                        <img th:src="${field.uniformRent}"/>
+                        <img th:src="${field.ballRent}"/>
+                        <img th:src="${field.shoesRent}"/>
+                    </ul>
+                    <h4 id="hometeamInfo2" class="column-h4"></h4>
+                    <div id="hometeamInfo">
+                    </div>
+                </div>
+
+                <form action="" method="GET">
+                    <input type="hidden" name="product-title" value="Activewear"/>
+                    <div class="row">
+                        <div class="col-auto">
+                            <ul class="list-inline pb-3">
+                                <li class="list-inline-item">
+                                    <span style="font-family: 'Roboto', sans-serif;" id="checks" class="checks"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--  시간테이블 -->
+                    <div id="timeTables">
+                  <span th:each="time : ${timeMap}">
+                     <span th:if="${time.value eq 'null' && myteam ne null}" style="display: inline-block;">
+                        <input type="button" class="btn-gradient green small" th:value="${time.key}">
+                     </span>
+                      <span th:if="${time.value eq 'null' && myteam eq null}" style="display: inline-block;">
+                        <input type="button" class="btn-gradient green small" disabled='disabled' th:value="${time.key}"
+                               style="cursor: no-drop;">
+                     </span>
+                     <span th:if="${time.value eq 'A' && myteam ne null}" style="display: inline-block;">
+                        <input type="button" class="btn-gradient yellow small" th:value="${time.key}">
+                     </span>
+                      <span th:if="${time.value eq 'A' && myteam eq null}" style="display: inline-block;">
+                        <input type="button" class="btn-gradient yellow small" disabled='disabled'
+                               th:value="${time.key}" style="cursor: no-drop;">
+                     </span>
+                     <span th:if="${time.value eq 'full'}" style="display: inline-block;">
+                        <input type="button" disabled='disabled' class="btn-gradient red small" th:value="${time.key}">
+                     </span>
+                  </span>
+                    </div>
+
+                    <table>
+                        <tr>
+                            <td colspan="2">🟥예약불가</td>
+                            <td colspan="2">🟨매칭대기중</td>
+                            <td colspan="2">🟩예약가능</td>
+                            <td colspan="6"></td>
+                        </tr>
+                    </table>
+
+                    <div class="row pb-3">
+                        <th:block th:if="${session.userId eq null}">
+                            <div class="col d-grid">
+                                <input type="button" class="btn-gradient gray" name="submit" value="로그인 후 이용하실 수 있습니다."
+                                       style="width: 1020px; cursor: no-drop;">
+                            </div>
+                        </th:block>
+                        <th:block th:if="${session.userId ne null && userTeamInfo eq null}">
+                            <div class="col d-grid">
+                                <input type="button" class="btn-gradient gray" name="submit"
+                                       value="팀에 가입 후 이용하실 수 있습니다." style="width: 1020px; cursor: no-drop;">
+                            </div>
+                        </th:block>
+                        <th:block th:if="${session.userId ne null && userTeamInfo ne null}">
+                            <div class="col d-grid">
+                                <input id="goReserve" type="button" class="btn btn-success btn-lg" name="submit"
+                                       value="예약하기" style="width: 1020px;">
+                            </div>
+                        </th:block>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<br>
+<!-- 이용약관 및 환불약관 -->
+<div th:include-html="@{/fieldCheck1.html}"></div>
+<br>
+<!-- Footer section -->
+<footer class="footer-section">
+    <div class="container">
+        <p class="copyright">
+            주식회사 풋살맨&nbsp;&nbsp; |&nbsp;&nbsp; 대표자 : 재현리&nbsp;&nbsp;
+            |&nbsp;&nbsp; 사업자 등록번호 : 159 78 00280<br> 대표번호 : 070-1577-1577
+            ( 평일 10:00-19:30 ) &nbsp;&nbsp;|&nbsp;&nbsp;
+            고객문의 : 카카오톡 검색 - 풋살매니저 ( 10시-23시 )
+        </p>
+    </div>
+</footer>
+<!-- Footer section end -->
+
+<!--====== Javascripts & Jquery ======-->
+</body>
+<script type="text/javascript">
+    includeHTML();
+</script>
+<script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/owl.carousel.min.js}"></script>
+<script th:src="@{/js/jquery.marquee.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+        integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8f3bf912ba858b8abef6fa5d46d5ff7b"></script>
+<script type="text/javascript" th:src="@{/js/map_near2.js}"></script>
+<script type="text/javascript" th:src="@{/js/datepicker2.js}"></script>
+<script type="text/javascript" th:src="@{/js/infowindow.js}"></script>
+<!--개발용 -->
+<script type="text/javascript" th:src="@{/js/login.js}"></script>
+<!--배포용 -->
+<!--<script type="text/javascript" th:src="@{/js/loginServer.js}"></script>-->
+<script type="text/javascript" th:src="@{/js/likefield.js}"></script>
+<script type="text/javascript" th:src="@{/js/other_search_field.js}"></script>
+<script type="text/javascript" th:src="@{/js/fieldreview.js}"></script>
+<script type="text/javascript" th:src="@{/js/deletereview.js}"></script>
+<script type="text/javascript" th:src="@{/js/modifyreview.js}"></script>
+</html>
