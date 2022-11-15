@@ -1,0 +1,48 @@
+ㅁ 구장리뷰 디자인
+ㅁ 성근이형한 부분 받음
+ㅇ field.html - review모달부터 th:block끝나는 곳까지
+    - 맨 아래 자바스크립트소스추가 부분
+ㅇ fieldreviewmodal.css - 전체
+ㅇ style.css - 전체
+
+ㅁ 구장좋아요 취소
+ㅇ MemberController.java - likeFieldAjax매핑부분 전체수정
+ㅇ likefield.js - 좋아요 취소 생성 및 ajax->await fetch 변경
+ㅇ field.html - 하트부분처리
+ㅇ main.html - 하트부분처리
+ㅇ MainController.java - main매핑부분(get)
+ㅇ likefieldmain.js 생성
+ㅇ style1.css
+
+ㅁ 해당팀주장만 팀 편집가능하게
+ㅇ TeamController.java - teamInfo매핑부분 mav추가
+ㅇ teamInfo.html - EDIT부분 조건 수정
+
+ㅁ 메인갈때 undefined 오류 수정 (main.js)
+ㅇmain.html - th:data-setbg="@{/img/mainpic4.jpg}"
+-> 
+th:style="'background-image:url('+ @{/img/mainpic4.jpg} +');'"
+ㅇ main.js 수정
+$('.set-bg').each(function() 주석처리
+ㅇ field.html - th:data-setbg="${field.fPic3}" 
+->
+th:style="'background-image:url('+ ${field.fPic3} +');'"
+
+ㅁ 팀인포에서 팀소개 및 활동지역 수정되도록
+ㅇ team.js - 팀 소개변경 추가
+ㅇ teamInfo.html 수정
+ㅇ TeamController.java - saveAsync매핑부분 수정
+
+ㅁ 회원가입시 메인에서 좋아요버튼두개보이는거 조건수정
+ㅇ main.html - 하트보이는 조건 수정
+ㅇ MemberController.java - likeFieldAjax매핑부분 수정
+
+ㅁ 구장리뷰(수정시)돌아가기버튼생성
+
+
+ㅁ 구장리뷰 메인화면에도 보이게
+
+ㅁ 팀원신청하기
+ㅇ teamtables.html - 신청하기 a 태그 name 줌
+ㅇ MainController.java - main으로 가는 get메소드에 끝부분수정
+
