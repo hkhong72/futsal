@@ -1,0 +1,33 @@
+221116혁기한일
+
+ㅁ 팀원가입신청하기
+ㅇ TeamController.java - teamInfo매핑 수정
+ㅇ TeamController.java - applyteamAjax 매핑
+
+ㅁ 팀원가입신청취소하기
+ㅇ TeamController.java - deleteApplyAjax 매핑
+ㅇ applyteam.js - 신청 및 신청삭제도가능
+ㅇ teamInfo.html - 버튼 및 조건추가
+
+ㅁ 팀원가입승인하기
+ㅇ manageapply.js 생성
+ㅇ teamInfo.html - 주장만보이는 신청리스트 및 관리
+ㅇ TeamDTO - applyname 삭제
+ㅇ TeamController.java - acceptApplyAjax 추가
+ㅇ teamInfo.html - 승인 후 확인
+
+ㅁ 팀원가입거부하기
+ㅇ TeamController.java - rejectApplyAjax 추가
+ㅇ teamInfo.html - 거부 후 확인
+
+ㅇ MainController.java - main으로 가는 get메소드에 끝부분수정
+
+ㅁ 팀인포들어가면 최근전적 가져오기
+ㅇ ReserveRepository - findByNameA 추가
+ㅇ ReserveService - '' 추가
+ㅇ ReserveServiceImpl - 추가한거 구현
+ㅇ TeamController.java - 오토와이얼드추가
+		     - teamInfo매핑 부분 추가 (최근전적)
+ㅇ teamInfo.html - 최근전적부분추가 
+------- 해킹당함. teamInfo.html 에서 최근전적나오는거에
+링크 연결중이었음 --------------------------
