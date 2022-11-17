@@ -1,0 +1,26 @@
+ㅁ 팀원가입승인하면 팀원회원디비에 tName에 넣기
+ㅇ TeamController.java - acceptApplyAjax매핑부분
+		     - teamInfo매핑부분
+ㅇ teamtables.html - 가입신청버튼날림
+
+ㅁ 팀장이 팀원추방
+ㅇ manageapply.js - kickMember함수추가
+ㅇ teamInfo.html - 팀원리스트부분수정
+ㅇ teamInfo.html - team.js가는 코드부분 조건추가
+ㅇ app-style.css
+ㅇ TeamController.java - KickMemberAjax 추가
+
+ㅁ 최근전적 
+ㅇ teamInfo.html - 최근전적에서 링크연결
+
+ㅁ 팀원이 팀탈퇴
+ㅇ teamInfo.html - 버튼자리옮기기 및 생성
+ㅇ manageapply.js - exitteam 생성
+ㅇ TeamController.java - exitTeamAjax 생성
+
+ㅁ구장리뷰
+ㅇ field.html - reviewmodal 부분에 값 넣기
+ㅇ fieldreview.js - 전체수정
+ㅇ fieldController.java - insertReview 전체수정
+ㅇ fieldController.java - deleteReviewAjax 전체수정
+ㅇ deletereview.js - 전체수정
