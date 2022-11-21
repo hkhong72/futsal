@@ -1,0 +1,21 @@
+ㅇ field.html - 로그인안해도 구장정보 보이게 수정
+ㅇ fieldreviewmodal.css - 돌아가기버튼 margin수정 및 수정취소버      튼 수정
+ㅇ modifyreview.js - 돌아가기 margin수정
+ㅇ timetable.css
+
+ㅁ 메인화면에서도 리뷰보이게
+ㅇ FieldDTO - 필드추가
+ㅇ mainfieldreviewmodal.js - 생성
+ㅇ MainController.java - 수정 메인 겟매핑
+ㅇ main.html - 리뷰버튼 수정
+ㅇ FieldController.java - 리뷰뭘하든 구장DB에도 들어가게끔
+ㅇ mainfieldreviewmodal.css
+
+ㅁ 좋아요 갯수 보이게
+ㅇ field.html
+ㅇ main.html
+ㅇ likefieldmain.js - 하는중 -------------------
+
+ㅁ 좋아요갯수, 나만의 좋아요구장, 리뷰갯수 순서로 메인정렬
+
+ㅁ 메인구장검색시 수정
