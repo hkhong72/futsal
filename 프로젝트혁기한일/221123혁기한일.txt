@@ -1,21 +1,26 @@
-ㅁ 좋아요 갯수 보이게
-ㅇ field.html - 좋아요부분수정
-ㅇ main.html - 좋아요부분수정
-ㅇ likefieldmain.js - 수정
-ㅇ likefield.js - 수정
-
-ㅁ 좋아요갯수, 나만의 좋아요구장, 리뷰갯수 순서로 메인정렬
-ㅇ main.html - 좋아요부분수정
-ㅇ likefieldmain.js - 전체수정
-ㅇ mainfieldreviewmodal.css - 부분수정
-ㅇ MemberController.java - likefieldAjax 매핑부분 수정
-ㅇ FieldDTO.java - 필드 추가
-ㅇ mainsosrt.js - 생성 
-ㅇ FieldRepository - 메서드추가
+ㅁ 메인에 인기순서정렬
+ㅇ mainsortpopular.js - 생성
+ㅇ MainController.java - sortpopularAjax 생성
+ㅇ FieldRepository.java - 메서드추가 
 ㅇ FieldService - 메서드추가
 ㅇ FieldServiceImpl - 메서드추가
-ㅇ MainController.java - sortpopularAjax 매핑추가
-ㅇ FieldController.java - 부분수정
-----------23일와서 mainsort.js 노가다시작하기..---------------
 
-ㅁ 메인구장검색시 수정
+ㅁ 메인에 내가찜한구장정렬
+ㅇ mainsortlike.js - 생성
+ㅇ MainController.java - sortlikeAjax생성
+ㅇ FieldRepository.java - 메서드추가 
+ㅇ FieldService - 메서드추가
+ㅇ FieldServiceImpl - 메서드추가 
+추가메서드 -> findTop10ByOrderByLikeListCountDesc
+
+ㅁ 메인에 리뷰순서정렬
+ㅇ mainsortreview.js - 생성
+ㅇ MainController.java - sortreviewAjax
+ㅇ FieldRepository.java - 메서드추가  
+ㅇ FieldService - 메서드추가
+ㅇ FieldServiceImpl - 메서드추가
+추가메서드 -> findTop12ByOrderByReviewsCountDesc 
+
+ㅁ 인기, 찜목록, 리뷰 순서로 정렬하고난뒤, 해당하는부분bold처리
+ㅁ 정렬 후 뜨는 창은 리뷰보기 불가, 좋아요는 가능
+ㅁ 사진긁기씨발 ㅋㅋ 1000~1350
