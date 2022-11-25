@@ -1,0 +1,25 @@
+ㅁ 디비fPic 이미지링크수정 1~1000
+
+ㅁ 서버에 올렸을 때 안뜨는사진 contextPath 조건 넣기
+ㅇ likefieldmain.js
+ㅇ likefield.js
+
+ㅁ 날씨정보5일지난거 프론트설정
+ㅇ field.html
+ㅇ datepicker2.js
+
+ㅁ 처음필드들어왔을때 날씨정보뜨는거
+ㅇ FieldController.java - {id}매핑부분 mav now추가 
+ㅇ field.html
+ㅇ datepicker2.js
+
+ㅁ 매칭대기중 누르면 홈팀정보 띄우기
+ㅇ field.html
+ㅇ datepicker2.js
+
+------------26일할일---------------------------------
+ㅁ 메인에 리뷰 
+- 작성, 수정, 삭제, 수정중삭제, 수정중작성, 수정중다른거수정
+한개씩만 적용되게 보수공사
+
+ㅁ 웹소켓이용하여 로그인될때 연동하기 ( 매너점수, B리스트알림등)
