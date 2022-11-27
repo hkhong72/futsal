@@ -1,0 +1,3 @@
+https://kukekyakya.tistory.com/561  -- 무한스크롤및 알람설정 스프링부트 참고자료
+
+https://bloodfinger.tistory.com/40 -- 실시간 알림 스프링부트 참고영상
