@@ -1,0 +1,29 @@
+ㅁ 윤후님 로그설정 합치기
+
+ㅁ 날씨정보위치수정
+ㅇ field.html
+ㅇ FieldController.java
+ㅇ fieldreviewmodal.css
+ㅇ datepicker2.js
+
+ㅁ 서버에서 홈팀정보 안뜨는거 수정
+ㅇ FieldController.java
+ㅇ datepicker2.js - img 속성 ContextPath지움
+
+ㅁ 서버에서 메인 정렬 후 하트안보이는거 수정 
+ㅇ mainsortreview.js
+ㅇ mainsortpopular.js
+ㅇ mainsortlike.js
+
+ㅁ 메인리뷰고치기
+ㅇ 불가능시발
+
+ㅁ 메인에서 구장검색 후 좋아요 및 리뷰완성하기
+ㅇ main.html
+ㅇ searchField.js 
+---29일할일 다른js파일 비동기함수어떻게가져오노? -----------
+
+ㅁ 로그인안하고 필드들어가면 숫자만나오는거 제거
+ㅇ field.html
+
+ㅁ 웹소켓시발 
