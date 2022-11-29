@@ -1,0 +1,20 @@
+ㅁ 메인 구장찾기 후 좋아요기능활성화
+ㅇ searchField.js
+
+ㅁ 메인 구장찾기 후 리뷰보기 및 활성화
+ㅇ searchField.js - 리뷰기능활성화실패 >> 결국성공
+
+ㅁ 메인외 페이지에서 구장찾기기능 복구 
+ㅇ teamtables.html
+ㅇ other_search_field.js
+ㅇ MainController.java - main post매핑부분
+ㅇ (reservation, board, communication, write,
+    reserve, teamInfo, field, createTeam).html - 구장찾기커서포인터
+ㅇ main.html - 좋아요부분
+
+ㅁ 메인리뷰기능 중복삽입제거
+ㅇ mainfieldreviewmodal.js - 온클릭전에 off클릭으로 수정
+ㅇ (mainsortlike, mainsortpopular, mainreview, 
+    searcgField, other_search_field ).js - 리뷰기능활성화
+
+ㅁ 웹소켓 모요~
