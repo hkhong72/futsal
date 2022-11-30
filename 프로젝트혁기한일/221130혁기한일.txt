@@ -1,0 +1,44 @@
+ㅁ 커뮤니티 작성글 개행
+ㅇ community.js - style="white-space: pre-wrap;"
+ㅇ write.html
+
+ㅁ 메인 및 필드 리뷰 개행
+ㅇ main.html
+ㅇ mainfieldreviewmodal.js
+ㅇ mainsortpupular.js
+ㅇ mainsortlike.js
+ㅇ mainsortreview.js
+ㅇ searchField.js
+ㅇ FieldController.js
+
+ㅁ 매칭완료시 양팀 전적 +1
+ㅇ Scheduler.java 
+ㅇ TeamService
+ㅇ TeamServiceImpl
+ㅇ TeamRepository
+18 - 20 영등포공원  
+홈 : 혁기카카오(크레용팝) / 어웨이 : 혁기구글(끄레용팝)
+- 20 - 22 상암 서울 월드컵 B면 
+- 홈 : 혁기카카오(크레용팝) / 어웨이 : 혁기구글(끄레용팝)
+
+
+
+ㅁ 서버에서 오류나는 것들 수정 (contextPath)
+ㅇ searchField.js
+ㅇ mainsortpopular.js
+ㅇ mainsortlike.js
+ㅇ mainsortreview.js
+
+ㅁ 서버에서 정렬 후 리뷰모달에 닉네임 옆에 시간 띄우기
+ㅇ mainsortpopular.js 
+ㅇ mainsortlike.js
+ㅇ mainsortreview.js
+
+ㅁ 구장검색 후 좋아요 랜덤재생 수정 및 리뷰닉네임시간위치조정
+ㅇ searchField.js
+
+ㅁ 웹소켓공부
+
+
+
+
