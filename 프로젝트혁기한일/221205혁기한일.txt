@@ -1,0 +1,27 @@
+ㅇ build.gradle - 디펜던시 추가
+ㅇ HelloMessage.java - 도메인에추가
+ㅇ Greeting.java - 도메인에추가
+ㅇ WebSocketConfig - configuration에 추가
+ㅇ GreetingController.java - 컨트롤러에 추가
+ㅇ websockettest.js - 자바스크립트추가
+ㅇ MessagingStompWebsocketApplication.java - 컨트롤러에추가
+ㅇ websocketTest.html - html 추가
+ㅇ maincontroller.java - websocketTest.html 매핑
+ㅇ main.html 헤더부분
+ㅇ websocket.js 생성
+ㅇ ReservationVO.java - manner 필드추가
+
+
+구독완료
+
+-----구독한놈들 ( email ) 의 닉네임 으로 한 reservation에서
+매칭완료이고, 날짜가오늘날짜랑같고, 시간이 지금시간보다지나간
+reservationDTO의 reservationVO는 매너를 추가하고(매너알람완료)
+========여기부터 6일할것=============
+그 해당 날짜와 시간, 구장이름으로 reserve객체를 찾아서 
+ArrayList<Reserve> reservelist에 담아서 패치로 다시 보낸다
+
+reservelist에서 nameB(상대방팀이름)에 매너점수는 어떤지 묻고
+좋으면 nameB로 팀객체 찾아서 tManner를 +1 한다.
+나쁘면 -1 
+보통이면 그대로.
