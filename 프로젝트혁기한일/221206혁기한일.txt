@@ -1,0 +1,13 @@
+ㅁ 웹소켓 subscribe & send 성공
+
+ㅁ 웹내위치기반 근처 구장 뜨게하기
+ㅇ map_near.js
+ㅇ MainController.java - mainSortLatitudeLongitudeDistanceNearBidongki 매핑추가
+ㅇ mainsortpopular.js
+ㅇ mainsortporeview.js
+ㅇ mainsortpolike.js
+
+ㅁ 웹소켓 검사기콘솔 및 인텔리제이콘솔에 적당히뜨게끔
+ㅇ MainController.java
+ㅇ GreetingController.java
+ㅇ websocket.js 
