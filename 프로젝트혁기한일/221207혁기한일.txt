@@ -1,0 +1,9 @@
+ㅁ reservation.html 모달 위치조정
+ㅇ style.css
+
+ㅁ 홈팀이 어셉트하는 순간 어웨이팀에게 알림가게
+ㅇ updateReservateList.js
+ㅇ ReserveController.java
+ㅇ websocket.js
+ㅇ MainController.java 
+====  sendToUser 어떻게 하는것인가 씨발 ? ====
