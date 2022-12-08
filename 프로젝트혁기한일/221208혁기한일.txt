@@ -1,0 +1,25 @@
+ㅁ 웹소켓 홈팀이 어웨이리스트중 하나팀을 어셉트하는 순간 어웨이팀에게 알람가도록 구현
+ㅇ websocket.js
+ㅇ updateReservateList.js
+ㅇ reserve.js
+ㅇ GreetingController.java
+ㅇ MainController.java
+ㅇ main.html
+ㅎ 웹소켓은 왜 이렇게 자주 끊기거나 안되는 것인가 ?
+ㅎ websocket.js 에서 다른 함수의 alert 이 왜 발동하는 것인가 ?
+
+ㅁ 메인에 마이페이지부분 값 넘기기
+ㅇ main.html
+ㅇ MainController.java
+
+ㅁ 알람들 있으면 메인페이지에 종모양에 갯수늘어나기  2 
+ㅇ 
+ㅇ 
+
+ㅁ 알람들 DB에 저장 1
+ㅇ 
+
+ㅁ 메인페이지에서 종 누르면 알람들 DB에서 꺼내서 보여주기 3
+
+
+========================== 마이페이지 연결 ===========
