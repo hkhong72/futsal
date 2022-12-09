@@ -1,0 +1,50 @@
+
+ㅎ 웹소켓은 왜 이렇게 자주 끊기거나 안되는 것인가 ?
+ㅎ websocket.js 에서 다른 함수의 alert 이 왜 발동하는 것인가 ?
+
+ㅁ 메인에 마이페이지부분 값 넘기기
+ㅇ main.html
+ㅇ MainController.java
+
+ㅁ 알람들 있으면 메인페이지에 종모양에 갯수늘어나기  2 
+ㅇ 
+ㅇ 
+
+ㅁ 알람들 DB에 저장 1
+ㅇ AlarmDTO.java 생성
+ㅇ AlarmVO.java 생성
+ㅇ AlarmRepository 생성
+ㅇ AlarmService 생성
+ㅇ AlarmServiceImpl 생성
+ㅇ MemberDTO 필드추가
+ㅇ GreetingController.java - 매너점수알림올때 멤버의알람디비삽입
+ㅇ websocket.js - 매너점수알림구독하고 콜백함수때 화면에 값넘기기
+ㅇ main.html - 알림눌렀을때 나오는 부분 전체수정
+
+
+
+ㅁ 메인페이지에서 종 누르면 알람들 DB에서 꺼내서 보여주기 3
+
+
+ㅁ 홈팀이 어셉트할때 어웨이에게 알람가고 어셉트진행 마무리
+ㅇ updateReservateList.js
+
+ㅁ 서버에서 나는 오류들 수정 ( 주로 매핑 )
+ㅇ websocket.js 
+ㅇ http면 block 되는 현상 해결 -> 헤더에 
+<meta charset="UTF-8" http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 추가
+ㅇ mainsortreview.js
+ㅇ mainsortpopular.js
+ㅇ mainsortlike.js
+
+ㅁ 크롬 -> 파이어폭스 O	파이어폭스 -> 크롬 X
+ㅇ 크롬에서만 하기로,,,
+
+ㅁ 메인종누르면 안읽음 -> 위로 // 읽음 -> 아래로
+ㅇ MainController.java
+ㅇ main.html
+
+=================10일할일=================
+ㅁ 메인종누르면 상대팀 로고도 가져오기
+ㅁ 메인종누르고 페이지 이동하면 읽음으로바꾸기
+ㅁ 메인페이지에서 나는 무수한 오류들해결하기
