@@ -1,0 +1,37 @@
+ㅁ 메인 종 누르고 안읽은 알람누르면 읽음처리 및 갯수조정, 페이지이동
+ㅇ main.html
+ㅇ quick.js
+ㅇ MainController.java
+
+ㅁ 어웨이팀이 도전하는 순간 홈팀에게 메세지 보내기 
+ㅇ websocket.js
+ㅇ reserve.js
+ㅇ GreetingController.java
+ㅇ reserve.html 
+
+ㅁ 홈팀이 어웨이팀 도전여부 알람구독하기
+ㅇ websocket.js
+ㅇ GreetingController.java
+
+ㅁ 알람에 타입을 줘서 (매너, 홈, 어웨이) 구분해서 DB에 저장하고 구분해서     가져옴
+ㅇ main.html
+ㅇ MainController.java
+ㅇ websocket.js
+
+
+ㅁ 알람보낼때마다 갯수 뿐아니라 화면에 보이는것도 내용포함하기
+
+ㅁ 마이페이지 부분 애시당초 뭘 누르면 나오게끔
+
+ㅁ 마이페이지 리뷰, 찜한구장 삭제 및 갯수 조정 (성근)
+
+ㅁ 예약페이지에서 매너점수입력 폼 받으면 활성화
+
+ㅁ 충전, 출금기능 활성화
+
+ㅁ 다른곳에서 구장찾기하고난뒤, 내위치 접근허용에 따라 덮어씌여짐
+
+ㅁ 앱에서 홈으로 어셉트하면 디비에 넣고 웹에서 마이페이지 수정되게끔
+ㅇ reserve.js
+ㅇ AppController.java
+
