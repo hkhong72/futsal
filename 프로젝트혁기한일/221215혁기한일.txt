@@ -1,0 +1,64 @@
+ㅁ 매너점수 알람있으면 앱에서도 로그인할때 보내기
+- 앱에서 웹으로는 보낼 필요 X
+
+ㅁ 어웨이가 도전할때마다 홈에게 알람보내기
+ㅇ AppController.java
+ㅇ websocket.js 
+
+ㅁ 웹에서 알람읽는거 오류 수정
+ㅇ quick.js - 매핑부분 / 추가
+
+ㅁ 메인페이지에서 The Content Security Policy 오류 수정하기
+ㅇ main.html - meta부분 및 sockjs 스크립트 수정 http->https
+
+ㅁ 앱에서 홈으로 어셉트하면 디비에 넣고 웹에서 마이페이지 수정되게끔
+ㅇ reserve.js
+ㅇ AppController.java
+
+ㅁ 필드에 처음들어갈때 현재시간받아와서 현재시간에 맞는 날씨 보여주기
+ㅇ field.html
+ㅇ FieldController.java
+
+ㅁ 팀생성할때 팀원이름에 주장이름도 넣기
+ㅇ TeamController.java
+
+ㅁ 어웨이팀이 도전하면 홈팀에 팀원모두 말고 예약자에게만 알림가도록
+ㅇ GreetingController.java
+ㅇ AppController.java
+
+ㅁ 다른곳에서 구장찾기하고난뒤, 내위치 접근허용에 따라 덮어씌여짐
+ㅇ map_near.js 
+ㅇ MainController.java
+ㅇ main.html
+
+ㅁ 인기,찜,리뷰, 메인에서검색 순 정렬후리뷰에 내 댓글만 삭제,수정버튼 뜨게
+ㅇ mainsortlike.js
+ㅇ mainsortpopular.js
+ㅇ mainsortreview.js
+ㅇ searchField.js
+
+ㅁ 로그인 안하고 정렬이든 검색이든할 때 그에맞게 뜨게끔 수정
+ㅇ main.html
+ㅇ mainsortlike.js
+
+ㅁ 예약페이지에서 매너점수입력 폼 받으면 활성화 하는중=====
+ㅇ sgtest.html 생성
+ㅇ MainController.java 매핑 
+ㅇ manner.css 생성
+
+ㅁ 팀원 추방시 주장은 추방안되게
+ㅇ manageapply.js
+ㅇ teamInfo.html
+
+ㅁ 구장검색시 괄호들어간거 오류 잠깐 봉합 ㅋㅌㅋ 
+ㅇ FieldController.java 
+
+ㅁ 마이페이지 부분 애시당초 뭘 누르면 나오게끔
+
+ㅁ 마이페이지 리뷰, 찜한구장 삭제 및 갯수 조정 (성근)
+
+ㅁ 충전, 출금기능 활성화
+
+ㅁ 팀인포공지사항
+
+ㅁ 알람보낼때마다 갯수 뿐아니라 화면에 보이는것도 내용포함하기
