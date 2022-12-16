@@ -1,0 +1,50 @@
+ㅁ 구장검색시 괄호들어간거 오류 잠깐 봉합 
+ㅇ FieldController.java 
+
+ㅁ 웹에서 어셉트할때 나는 오류수정하기
+ㅇ websocket.js - 130번 라인 .trim()
+
+ㅁ 팀주장 추방안되는거 유효성검사 js -> html 로 변경
+ㅇ teamInfo.html
+ㅇ manageapply.js
+
+ㅁ 도전할때 같은 팀한테는 도전안되게 
+ㅇ ReserveController.java 
+ㅇ reserve.js 
+
+ㅁ 알람보낼때마다 갯수 뿐아니라 화면에 보이는것도 내용포함하기
+- 도전할때 홈에게 가기
+ㅇ websocket.js
+ㅇ main.html
+ㅇ GreetingController.java
+ㅇ Manner.java 
+- 어셉트할때 어웨이에게 가기
+ㅇ websocket.js
+ㅇ main.html
+ㅇ GreetingController.java
+- 매너점수알람일때
+
+ㅁ 앱에서 커뮤니티에서 글보고 도전하기바로될때 웹소켓send적용
+ㅇ AppController.java
+
+ㅁ 팀인포공지사항
+ㅇ teamInfo.html
+ㅇ TeamDTO.java - 공지사항추가
+ㅇ noticeVO.java 생성
+ㅇ TeamController.java
+ㅇ manageapply.js
+==== 공지사항 길면 한줄로 .... 으로 보이고, 누르면 길게나오게 
+	그리고 공지사항 작성하는 부분 화면상 고정시키기 =====
+
+======== 17일할일 =========
+ㅁ 다른페이지에서 구장검색 후 괄호포함 오류 수정
+MainController post /main 매핑 부분부터 고치기 (맨위주석부분포함하면서)
+
+ㅁ 마이페이지 부분 애시당초 뭘 누르면 나오게끔
+
+ㅁ 마이페이지 리뷰, 찜한구장 삭제 및 갯수 조정 (성근)
+
+ㅁ 충전, 출금기능 활성화
+
+
+
