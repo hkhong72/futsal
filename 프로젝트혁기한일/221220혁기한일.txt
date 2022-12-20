@@ -1,0 +1,24 @@
+ㅁ 매너,승무패 작성및제출 및 뒤처리 mannerandresult.js 패치결과처리
+ㅇ reservation.html
+ㅇ MainController.java - /reservation
+ㅇ mannerandresult.js -  sgtest.html >> mannerresult
+ㅇ ReservationVO 필드추가
+ㅇ MainController.java
+ㅇ manageapply.js
+
+ㅁ 전적기입오류 수정
+ㅇ AppController - postAcceptAway매핑, 어셉트할때 홈팀에 레코드추가
+
+ㅁ 팀전적보여줄때 결과까지보여주기 
+ㅇ teamInfo.html
+ㅇ TeamController.java - teaminfo 매핑
+ㅇ app-style.css
+
+ㅁ 마이페이지 부분 애시당초 뭘 누르면 나오게끔
+ㅇ main.html
+ㅇ quick.js
+ㅇ myPage.css
+
+ㅁ 메인페이지 지도 누르면 동적화면비율 수정
+map_near.js 해결못했음아직
+ㅁ 충전, 출금기능 활성화
