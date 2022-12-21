@@ -1,0 +1,37 @@
+21일
+ㅁ 매너작성카운트 생성 ( 평균내기위함 )
+ㅇ TeamDTO.java 필드추가 ( 매너카운트 )
+ㅇ ReserveController.java ( 매너카운트 )
+ㅁ 홈팀 뜨는 부분 수정
+ㅇ datepicker2.js
+ㅇ fieldreviewmodal.css
+
+ㅁ 팀인포에 최근경기부분 수정 및 매너점수,통산전적 띄우기
+ㅇ TeamController.java
+ㅇ teamInfo.html
+ㅇ TeamController.java
+
+ㅁ 팀생성 시 팀명중복 유효성검사
+ㅇ createTeam.css
+ㅇ TeamController.java
+ㅇ createTeam.html
+ㅇ createTeamArea.js
+
+ㅁ 팀인포 팀원일때, 주장일때, 팀원아닐때 구분
+ㅇ teamInfo.html
+
+ㅁ 발표때 쓸 내용 초안작성 >> 페이지 모든 기능 나열 및 세부설명 작성
+ㅇ memozhang.txt ( 커뮤니티부분빼고 완료)
+
+ㅁ field.html 에서 지도보기누르면 이용약관사라지고 지도등장
+ㅇ field.html
+ㅇ teamInfo.js
+
+ㅁ 메인페이지, 필드페이지 지도 누르면 동적화면비율 수정
+map_near.js 해결못했음아직
+ㅁ 충전, 출금기능 활성화
+====== 병신같은 거 왜 안되는거지 ? =======
+
+ㅁ 페이징 마무리
+ㅇ community.js - 126번째 라인에서 매핑이 겹치는듯 ? 컨트롤러에 로그찍어보면서 어디 컨트롤러로 가는지 확인하고, 겹쳤는지 여부확인되면
+다른 매핑 새로 만들어주기
