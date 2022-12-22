@@ -1,0 +1,40 @@
+ㅁ 메인페이지, 필드페이지 지도 누르면 동적화면비율 수정
+ㅇ quick.js
+ㅇ main.html
+ㅇ field.html
+ㅇ map_near2.js
+ㅇ teamInfo.js
+
+ㅁ 퀵메뉴마무리
+ㅇ main.html
+ㅇ quick.js
+ㅇ main 퀵메뉴들의 각종 css들 수정
+
+ㅁ 팀인포 최근경기 내전도 경기날짜시간뜨게
+ㅇ teamInfo.html
+
+ㅁ 팀테이블 갈때 쓸데없는 로그찍는 것들 삭제
+ㅇ TeamController.java 
+
+ㅁ 웹에서 도전신청이미 한 경기에 중복해서 신청할때 파베메세지 못가게막기
+ㅇ ReserveController.java
+ㅇ ReserveListController.java
+ㅇ reserve.js
+ㅇ updateReservateList.js
+ㅇ websocket.js
+ㅇ mannerandresult.js
+ㅇ GreetingController.java
+ㅇ AppController.java
+
+ㅁ 웹에서 도전신청할때 같은팀원이 이미 신청한 경기는 중복 신청안되게끔
+ㅇ ReserveListController.java
+ㅇ reserve.js
+
+ㅁ 웹에서 어셉트할 때 파이어베이스 알람 보내기 마무리
+ㅇ GreetingController.java
+
+
+ㅁ 발표자료 피피티, 영상, 개발툴소개 등 부분들 회의
+ㅇ 221222회의.txt
+
+ㅁ 충전, 출금기능 활성화
