@@ -1,0 +1,14 @@
+ㅁ 메인에 결제폼 생성
+ㅇ main.html
+ㅇ button.css
+
+
+ㅁ 메인에 충전버튼 누르면 결제폼 시각화
+ㅇ pay.js
+
+ㅁ 카카오결제api 가져오기
+ㅇ pay.js
+ㅇ main.html 자바스크립트추가
+
+ㅁ MemberController.java
+ㅇ addpoint 매핑추가
