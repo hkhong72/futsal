@@ -1,0 +1,8 @@
+ㅁ 카카오페이결제API 폼 꾸미기 
+ㅇ main.html
+ㅇ pay.js
+
+ㅁ 예약페이지 폼꾸미기
+ㅇ reservation.html
+
+ㅁ 피피티 진행
