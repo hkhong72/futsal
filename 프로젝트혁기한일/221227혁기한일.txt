@@ -1,0 +1,29 @@
+ㅁ 매너점수 폼 꾸미기
+ㅇ main.html
+ㅇ myPage.css
+
+ㅁ 매너점수 홈 & 어웨이 버튼 및 작성 폼 마무리
+ㅇ reservation.html
+ㅇ mannerandresult.js
+ㅇ MainController.java - /reservation mav멤버추가
+
+ㅁ 알람순서리버스
+ㅇ MainController.java - /main get&post매핑부분 알람담는부분 리버스
+
+ㅁ 웹소켓수정 ( 도전->홈팀예약자 // 어셉트->홈,어웨이팀팀원모두 // 전적기입(매너알람과통합)->홈,어웨이팀의예약자)
+ㅇ websocket.js
+ㅇ GreetingController.java
+ㅇ Scheduler.java
+
+ㅁ 매칭완료인애들중에 어웨이팀은 먼저 해당레코드생성해주기 
+ㅇ GreetingController.java - 어셉트할때 어웨이팀도 해당 구장,날짜,시간,결과:null 들어간 레코드 필드 생성
+ㅇ Scheduler.java 
+
+ㅁ 홈팀이 전적기입할때 어웨이팀 해당레코드생성해주는부분삭제하기
+ㅇ ReserveController.java 
+
+
+ㅁ 팀테이블스에 판수정렬다시
+ㅁ 결제 APP 카톡아디로..
+
+
