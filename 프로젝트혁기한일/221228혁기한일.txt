@@ -1,0 +1,29 @@
+ㅁ 웹소켓마무리 -> 기존의 매너점수 및 전적기입 알림 하나로 통합하고 스케쥴러로 이동
+ㅇ GreetingController.java 
+ㅇ Scheduler.java
+ㅇ websocket.js
+
+
+ㅁ 팀테이블스에 판수정렬다시
+ㅇ teamtables.html - 총판수 onclick 메서드변경
+ㅇ sortable.js - 생성
+ㅇ TeamController.java - sortTotal 매핑 생성 
+ㅇ TeamConparator.java - 도메인에 Comparator 인터페이스 상속받아 구현한 class 생성
+
+ㅁ 결제API 나이스페이먼츠로변경
+ㅇ main.html - 결제방식 다양화 (카드 or 카카오페이)
+ㅇ pay.js - 결제방식 다양화 (나이스페이먼츠 or 카카오페이)
+ㅇ 아임포트 결제연동 -> 테스트연동에 나이스페이먼츠추가
+ㅇ 아임포트 관리자콘솔 -> 결제승인내역 -> 결제취소가능
+
+ㅁ 알림문구 통일 (파베 타이틀,콘텐츠만 수정)
+ㅇ AppController.java
+ㅇ GreetingController.java 
+
+ㅁ 회원 가입 시 8글자 제한 
+ㅇ register.html
+
+ㅁ 스케쥴러 웹소켓 및 파베 체크하기
+ㅁ 결제 APP 카톡아디로..
+ㅁ 각 페이지 해더 동일하게 처리, 어디서든 알림 확인 가능
+메인페이지에서 헤더부분 html새로 만들고 인클루드할수 있는 방법 찾기
