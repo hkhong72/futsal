@@ -1,0 +1,23 @@
+ㅁ 스케쥴러 웹소켓 및 파베 체크하기
+ㅇ Scheduler.java
+
+
+
+ㅁ DB초기화후 에러잡기
+ㅇ TeamController.java - 팀인포들어가는곳 try 
+ㅇ MainController.java - 메인get갈때 구장디비에 count 부분 다 0으로초기화
+ㅇ map_near.js
+ㅇ main.html - 로그인안했을때 콘솔창오류나는 거 js 조건걸기
+ㅇ searchTeam.js - 팀검색후 팀 인포안들어가지는거 오류 수정 (매핑)
+ㅇ TeamController.java - /search매핑부분 수정 (리턴값변경)
+ㅇ team.js - 팀소개 placeholder 추가 및 공란입력시 오류수정, 뷰단에서 띄어쓰기포함오류수정
+ㅇ teamInfo.html - 팀소개 placeholder 추가 및 공란입력시 오류수정, 뷰단에서 띄어쓰기포함오류수정
+ㅇ AppController.java 어셉트할때 도전할때 예약자save 문제때문에 파베는 가지만 알림이안가던거랑 알림메시지내용 수정 
+ㅇ main.html - 알림메시지오는거 꾸미기 <hr> 수정
+ㅇ app-style.css - 공지길면짤리는거 수정 .hi 에 height수정
+ㅇ GreetingController.java - 어웨이팀 레코드 어디서 set 되는지 찾아서 웹or앱에서 어셉트할때 어웨이레코드 확인하기
+
+ㅁ 팀검색엔터추가
+ㅁ 결제 APP 카톡아디로.
+ㅁ 각 페이지 해더 동일하게 처리, 어디서든 알림 확인 가능
+메인페이지에서 헤더부분 html새로 만들고 인클루드할수 있는 방법 찾기
