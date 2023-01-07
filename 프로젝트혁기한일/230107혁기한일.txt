@@ -1,0 +1,48 @@
+ㅁ 구장에서 좋아요 ★
+오류없음
+ㅁ 구장에서 댓글 ★
+오류없음
+ㅁ 메인겟에서 좋아요 ★
+오류없음
+ㅁ 메인겟에서 댓글 ★
+ㅇ mainsortreview.js // map_near.js // mainsort3개.js // searchField.js // mainfeildreviewmodal.css // main.html // mainfieldreviewmodal.js 돌아가기 및 수정취소 버튼 위치조절 
+
+ㅁ 메인검색에서 좋아요 ★
+ㅇ FieldController.java - /search 매핑부분에서 좋아요갯수가 음수면 0으로 세이브처리
+
+ㅁ 위치기반안했을때겟메인 좋아요 ★
+ㅇ likefieldmain.js - 좋아요버튼 width 수정
+
+ㅁ 메인정렬 리뷰 찜 인기에서 좋아요 ★
+ㅇ 오류없음 
+
+ㅁ 메인정렬 리뷰 찜 인기, 서치, 겟메인에서 댓글 ★
+ㅇ mainfieldreviewmodal.js - 버튼들 조건문 밖으로 빼서 첫번째 수정및삭제가안되는거 해결
+
+ㅁ 메인에서 댓글이 수정중에 삭제해서 총댓글이 0개일때 나는 오류해결 ★
+ㅇ FieldController.java - /backToMadalAjax 매핑부분
+
+ㅁ 예약페이지에서 충전모달깨지는거 ★
+ㅇ team.css - select 부분 주석 (다른곳에서 안쓰는거같음)
+ㅇ reservation.html - max-width로 수정
+
+ㅁ 예약페이지에서 지도 깨지는거 수정 및 마커찍히도록★
+ㅇ reservation.html - 지도 max-width 주어서 해결
+ㅇ MainController.java - /reservation 매핑에서 Utils.fNList불러올때 값을 안넣어줬던거수정
+
+ㅁ 필드에서 댓글갯수0일때 숫자안보이던거 수정 ★
+ㅇ field.html - 기존 th:if 조건문삭제 후 field.reviewsCount로 값 뽑아오도록 변경
+
+ㅁ 매너점수 및 전적기입 오류확인 ★
+ㅇ 오류없음
+
+ㅁ 예약페이지에서 안읽은 알람에 빨간밑줄그어있는거 수정 ★
+ㅇ reservation.html - style="text-decoration:none;" 으로 설정
+
+ㅁ 웹에서 어셉트시 홈으로 가는 알람 확인하기 ★
+ㅇ GreetingController.java - /accept 매핑부분에서 홈으로가는 알람 도착지 home->away로 변경
+
+ㅁ 앱에서 어셉트시 홈으로 가는 알람 확인하기 ★
+ㅇ AppController.java - /postAcceptAway 매핑부분 마찬가지로 도착지 변경
+
+
