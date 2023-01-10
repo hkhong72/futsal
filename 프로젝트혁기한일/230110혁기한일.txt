@@ -1,0 +1,26 @@
+ㅁ 오케스트로 이력서 마무리 및 제출
+
+ㅁ spirng boot futsal 프로젝트 swagger 활용 
+ㅇ application.properties 에 spring.mvc.pathmatch.matching-strategy=ant_path_matcher 추가
+ㅇ build.gradle 에 의존성주입 추가 implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+	implementation 'io.springfox:springfox-swagger2:2.9.2'
+ㅇ WebConfiguration에 registry.addResourceHandler("/swagger-ui.html")
+				.addResourceLocations("classpath:/META-INF/resources/");
+ㅇ FutsalApplication.java 에 @EnableSwagger2 어노테이션 추가
+ㅇ SwaggerConfig 생성 및 커스터마이징
+
+ㅁ swagger 활용 및 커스터마이징
+ㅇ 모든 controller.java에 @Api(tags = {"컨트롤러설명"}) 추가
+ㅇ 각 controller에 모든 메서드마다 @ApiOperation(value = "해당 메서드 설명", response = 사용하는DTO.class) 추가
+
+ㅁ 서버관련
+ㅇ EC2 인스턴트 실행 시 몽고디비 자동 실행 확인
+ㅇ sudo 권한 발급
+ㅇ war파일 수정 후 과정 연습
+	- ssh futsal > sudo systemctl status tomcat9 (loaded가 멈춘 것, running이 실행 중)
+	- sudo systemctl stop tomcat9
+	- 수정할 war파일 생성 > war파일위치에서 scp * futsal:~ ( moyo에 홈디렉으로감 )
+	- mv futsal.war /var/libs/tomcat9/webapps
+	- sudo systemctl start tomcat9 > sudo systemctl status tomcat9 
+	- tail -f /mnt/futsal/logs/futsal.log 로 커넥트확인
+scp 나 mv 말고도 모바엑스텀으로 쉽게 옮길 수 있음
