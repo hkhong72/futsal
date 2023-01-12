@@ -1,0 +1,190 @@
+도커 컨테이너 실습 (ubuntu / CentOS / window)
+
+test 인스턴스 생성
+- 20.04우분투 프리티어 t2.micro 선택
+- futsal_yuki 키페어 선택
+- 기존 보안그룹 wizard-2 선택
+인스턴스 생성완료
+
+mysql workbench 설치
+MobaXterm 설치 
+
+모바엑스텀으로 우분투와 새 인스턴스 연결하기
+
+업데이트 명령어
+>> 
+	sudo apt -y update
+	sudo apt -y upgrade
+- hub.docker.com
+- docs.docker.com
+도커설치 리눅스용
+docker Engine 를 설치해야함 // engine 탭에 install - ubuntu
+Install Docker Engine on Ubuntu
+Set up the repository 1.2.3 mobaxterm에 실행
+Install Docker Engine 1.2.3 해서 hello-world 찍히는 지 확인
+
+맨아래 Next steps 에
+Continue to Post-installation steps for Linux. 새탭에서열기
+sudo 빼기 (선택사항)
+
+sudo docker run hello-world
+
+Q  : sudo docker run hello-world와 같은 동작하는 docker명령어는?
+A : (1) sudo docker pull hello-world
+     (2) sudo docker create hello-world
+     (3) sudo docker start hello-world
+
+sudo docker images 로 현재 이미지 확인가능
+sudo docker rmi hello-world 로 이미지 삭제가능
+---- 현재 컨테이너 보기 ----
+sudo docker ps 현재 '실행중인' 컨테이너
+sudo docker ps -a 모든 컨테이너
+
+sudo docker --help 모든 명령어 보여줌  === sudo docker -h
+sudo docker create --help 크리에이트와 관련된 모든 명령어 보여줌 === sudo docker create -h 
+
+sudo docker rm <컨테이너ID> 또는 <컨테이너name> 컨테이너 삭제가능
+
+이미지를 지우기위해서는 컨테이너가 없어야함 (컨테이너먼저삭제해야함)
+
+-------------------
+
+hello-world 이미지를 실행시키고 지우기를 반복하는 복습하기
+
+sudo docker run hello-world 반복
+sudo docker ps -a (컨테이너확인)
+sudo docker rm <컨테이너ID> (띄어쓰기로 여러개 삭제가능)
+sudo docker ps -a (컨테이너 삭제확인)
+sudo docker images (이미지 확인)
+sudo docker rmi hello-world
+sudo docker images (이미지삭제확인)
+
+-------------------
+container life-cycle ( 학생들 이해목적 : 컨테이너 삶 주기)
+- 도커/컨테이너  도커 엔진/컨테이너 
+image -> pull -> containerize(container화) -> 실행
+-> stop - rm 삭제(컨테이너 삭제) -> rmi 사용 image 삭제
+
+container 정의 : 격리된(독립된) 실행환경 <--- 무조건 암기 !!
+
+docker command auto complete 검색으로 자동완성 찾기 (지금배울땐 그냥 공부하기)
+
+sudo docker run hello-world
+
+
+---------------------------
+
+nginx 구동
+
+(1) ubuntu에 nginx 설치, conf 등등 작업
+$ sudo apt -y install nginx 
+nginx가 실행중인지 확인 방법
+$ sudo systemctl status nginx
+우리 눈으로 (web broser 사용해서...)
+인스턴스 보안그룹 http 80포트열고 퍼블릭 ip 주소로 접근해보기
+확인했으면 끄기
+$ sudo systemctl stop nginx
+$ sudo systemctl status nginx
+
+-- 완전제거
+$ sudo apt -y remove/purge nginx
+위 두개중에 용도에 따라 하나만 사용
+
+--- 패키지 설치/삭제 등 관리 전후에는 항상
+$ sudo apt -y update
+$ sudo apt -y upgrade 하는 좋은 습관 들이기
+
+$ which nginx 
+$ whereis nginx 
+
+
+(2) container 로 nginx 구동
+
+sudo systemctl status docker 로 컨테이너는 잘 돌고있는지 확인
+
+--- 기본적으로 hub.docker.com >> nginx 검색 >> official 설명보기
+$ sudo docker run -d -p 80:80 nginx (p는 port의 약자로써, 앞에는 내가 돌리고싶은 포트번호, 뒤에는 official에서 정한 expose포트번호고정) (d는 demon모드로 실행한다는 의미)
+
+$ sudo docker run -d -p 80:80 nginx
+$ sudo docker run -d -p 8000:80 nginx
+$ sudo docker run -d -p 8080:80 nginx
+$ sudo docker run -d -p 9000:80 nginx
+확인하려면 ec2에 보안그룹 인바운드규칙 추가해서 포트 열어줘야함
+
+--------------------------
+컨테이너 들어가서 작업 할 것임.
+(웹페이지 변경해서 눈으로 확인 목적)
+$ sudo docker ps >> 2개가 돌고있는것 확인, 들어가야함
+
+$ sudo docker exec -it <컨테이너ID> bash
+프롬포트바뀐것보고 해당 컨테이너로 진입 확인
+
+빠져나오는방법 2가지>>
+(1) exit  >> 컨테이너를 종료시키면서 빠져나오는것
+(2) Ctrl p q  >> 종료안시킼고 빠져나오는것
+
+들어간상태로 /usr/share/nginx/html 
+ welcome.html을 만들고 싶으나,
+기본적으로 editor(vi)가 없으므로,
+$ cat >> welcome.html
+<h1> Welcome !! </h1>
+Ctrl C로 빠져나오면 welcome.html이 생성됨
+$ cat welcome.html 및 43.201.25.181:8000/welcome.html로 확인
+
+---- mysql / mongoDB
+(1) ubuntu 에서 mysql / mongoDB 설치 해서 구동
+(2) mysql container 실행
+
+동일하다 : 사용자 입장
+
+웹 사용자 입장에서 보면,
+ - 서버가 window ubuntu CentOS에 nginx를 설치했는지 아닌지
+ - 서버가 container 인지 아닌지 구분못함 / 알필요도 없음
+ - 서버 개발자 / 관리자만 알고있음
+ex) 개발팀 5명. 서버1대에 웹 5개 돌아가야 함.
+     각각 nginx 돌릴 수 있느냐?? 답은 쉽지않다 => 불가능에 가깝다
+     적어도 nginx configuration file 5번은 수정해야 함
+     바꿀 대 마다 빈번한 수정.
+>> 그런데 게임업체, 대형 웹 서버 사용자 만명이상 
+     기존 기술(~에 설치하고, 실행하고,,,)로는 불가능
+     container는 1만대 아니라 10만,100만 아무 관계 X. 모두 가능..
+
+$ sudo docker run --name firstmysql -e MYSQL_ROOT_PASSWORD=1234 -p 3306:3306 -d mysql:8.0.31 (버전안주면디폴트는 최신)
+
+$ sudo docker run -d nginx
+$ sudo docker run -e MYSQL_ROOT_PASSWORD=1234 -d mysql
+$ sudo docker run -e MYSQL_ROOT_PASSWORD=1234 -p 5000:3306 -d mysql
+$ sudo docker run -it ubuntu /bin/bash
+$ sudo docker run -it alpine /bin/sh
+$ sudo docker run -it busybox /bin/sh
+
+다시 $ sudo docker run -e MYSQL_ROOT_PASSWORD=1234 -d mysql 로 접속
+
+$ sudo docker rm -f <컨테이너ID>  (컨테이너강제삭제)(mysql 잠시삭제)
+$ sudo docker run -e MYSQL_ROOT_PASSWORD='1234' -p 3306:3306 -d mysql
+$ sudo docker exec -it <06d(mysql containerID)> mysql -u root -p
+
+mysql> 보이면 mysql 접속완료확인
+
+: 외부에서 접속할 때 'root' 로는 접속 안됨. 일반사용자 하나 만들기
+
+mysql> create user 'test' identified by '1234';
+mysql> grant all privileges on *.* to 'test'; (권한다주기)
+mysql> flush privileges; (권한을 리스타트시킴)
+----------------------
+- ec2의 SG(보안그룹)에서  3306 열려있는지 확인
+$ sudo docker run -e MYSQL_ROOT_PASSWORD='1234' -p 5000:3306 -d mysql
+$ sudo docker run -it ubuntu /bin/bash
+
+---------
+유튜브에서 '재즐보프 도커'
+
+
+
+
+
+
+
+
+
+
