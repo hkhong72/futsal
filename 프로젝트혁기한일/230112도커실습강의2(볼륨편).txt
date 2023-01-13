@@ -1,0 +1,78 @@
+새 인스턴스 준비 및 apt -y update 및 upgrade 까지 셋팅
+
+(1) 도커 설치의 지름길 (정석 아님) -- 어제는 정석
+$ sudo apt -y install docker.io <--- 우분투에만 해당되는 사항
+
+$ sudo docker run hello-world 
+$ sudo systemctl status docker 로 테스트하기
+
+$ sudo docker --help === -h
+$ sudo docker cp -h
+$ sudo docker inspect --help
+$ sudo docker logs -h ( 로그파일보기 )
+
+$ sudo docker run -it ubuntu /bin/bash
+$ mkdir /test
+$ cd /test
+$ vi hello.txt         	ctrl i 로 welcome !! 작성 후 :wq로 빠져나옴
+$ cat hello.txt 확인
+
+'도커 엔진'을 설치했음
+'도커 엔진' 이 있는 머신 == '도커 호스트'
+$ sudo docker cp /test/hello.txt 3004d2cf540d:/test
+컨테이너안에 있는 것을 도커호스트로 옮겨보기/ 반대도해보기
+(2) 도커 명령어 복습 
+
+(3) -v 옵션 : volumn mount
+볼륨을 잡아놓으면 도커호스트에 
+-v /home/ubuntu:/test
+-p : ex. -p 8000:80
+
+$ sudo docker run -v /home/ubuntu/html:/usr/share/nginx/html -p 80:80 -d nginx
+컨테이너에있는 /usr/share/nginx/html 를 /home/ubuntu/html로 마운트 해서 run 해라
+
+
+(4) 기본적인 Dockerfile <--- 컨테이너 학습의 끝. 지원자 Dockerfield build 할 수 있니?
+	image 를 만드는 것임 
+$ sudo docker run -p 80:80 -d nginx
+$ sudo docker exec -it <id> bash
+$ cd /usr/share/nginx/html
+$ cat >> welcome.html 
+
+$ cat welcome.html 로 확인
+Nginx 를 run 했고 exec로 들어가서 /usr/share/nginx/html 에 welcome.html 만든상태
+이 컨테이너의 이미지를 만들고 싶은 경우 ??
+>>
+(1) $ sudo docker commit <컨테이너ID> <이미지아이디지정하기>
+	$ sudo docker push ... <-- docker hub에 갖다둠
+	$ sudo docker run <여러분의 이미지>
+
+(2) $ sudo docker save < --- > $ sudo docker load 명령어로 이미지를 저장하고 읽어낼 수 있음 
+
+(3) $sudo docker export < --- > $ sudo docker import 
+
+기본적으로 1번방법으로 함
+
+----------------도커 오후 실습내용 :
+
+- 도커헙에 이미지 push/pull 실습
+- docker hub에 id 만들어야 함 (무료 개인계정 만들기) hub.docker.com
+
+용어정리
+레지스트리(registry)    github, hub : repository의 집합
+리파지토리(repository)  gildong : 개별저장소
+
+docker login 과 password 
+$ sudo docker login -u <hub아이디> -p <password>
+$ sudo docker tag <원래이미지이름> <hub아이디/바꿀이미지이름>
+$ sudo docker push <hub아이디/푸시할이미지이름>
+사용할때 >>
+$ sudo docker run <hub아이디/푸시할이미지이름>
+
+
+
+
+
+
+
+
